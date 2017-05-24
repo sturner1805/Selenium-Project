@@ -15,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -39,9 +40,18 @@ public class GenJUnitShopping {
     driver.findElement(By.linkText("Order")).click();
 //    driver.findElement(By.xpath("(//a[contains(text(),'Integrations')])[3]")).click();
 //    driver.findElement(By.xpath("//div[2]/div/div/div[2]/div[3]/form/button")).click();
-    driver.findElement(By.xpath("//button[@type='submit']")).click();
-//    waitUntilElementPresent(driver.findElement(By.id("inputFirstName")), 5);
-    driver.findElement(By.id("inputFirstName")).click();
+    
+     driver.findElement(By.xpath("//button[@type='submit']")).click();
+    
+//    String formWindow = driver.getWindowHandle();
+//    driver.switchTo().window(formWindow);
+//    driver.switchTo().defaultContent();
+//    Actions action = new Actions (driver);
+    driver.switchTo().frame(0);
+    driver.switchTo().defaultContent();
+    driver.switchTo().frame(1);
+    waitUntilElementPresent("inputFirstName", 5);
+    driver.findElement(By.id("inputFirstName")).click(); 
     driver.findElement(By.id("inputFirstName")).clear();
     driver.findElement(By.id("inputFirstName")).sendKeys("Sam");
     driver.findElement(By.id("inputLastName")).clear();
@@ -126,8 +136,8 @@ public class GenJUnitShopping {
     }
   }
   
-  private void waitUntilElementPresent(WebElement e, int timeout){
+  private void waitUntilElementPresent(String e, int timeout){
 	  WebDriverWait wait = new WebDriverWait(driver, timeout);
-	  wait.until(ExpectedConditions.elementToBeClickable(e));
+	  wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(e)));
   }
 }
