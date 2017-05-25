@@ -10,37 +10,37 @@ public class RegistrationPage {
 	
 	private static WebDriver driver;
 	
-	@FindBy(xpath = "//*[@id=\"inputFirstName\"]")
+	@FindBy(xpath = "//*[@id=\"firstname\"]")
 	private WebElement firstName;
 	
-	@FindBy(xpath = "//*[@id=\"inputLastName\"]")
+	@FindBy(xpath = "//*[@id=\"lastname\"]")
 	private WebElement lastName;
 	
-	@FindBy(xpath = "//*[@id=\"inputCompanyName\"]")
+	@FindBy(xpath = "//*[@id=\"companyname\"]")
 	private WebElement compName;
 	
-	@FindBy(xpath = "//*[@id=\"inputEmail\"]")
+	@FindBy(xpath = "//*[@id=\"email\"]")
 	private WebElement email;
 	
-	@FindBy(xpath = "//*[@id=\"inputPhone\"]")
+	@FindBy(xpath = "//*[@id=\"phonenumber\"]")
 	private WebElement phone;
 	
-	@FindBy(xpath = "//*[@id=\"inputAddress1\"]")
+	@FindBy(xpath = "//*[@id=\"address1\"]")
 	private WebElement address1;
 	
-	@FindBy(xpath = "//*[@id=\"inputAddress2\"]")
+	@FindBy(xpath = "//*[@id=\"address2\"]")
 	private WebElement address2;
 
-	@FindBy(xpath = "//*[@id=\"inputCity\"]")
+	@FindBy(xpath = "//*[@id=\"city\"]")
 	private WebElement city;
 
 	@FindBy(xpath = "//*[@id=\"stateinput\"]")
 	private WebElement state;
 
-	@FindBy(xpath = "//*[@id=\"inputPostcode\"]")
+	@FindBy(xpath = "//*[@id=\"postcode\"]")
 	private WebElement postcode;
 
-	@FindBy(xpath = "//*[@id=\"inputCountry\"]")
+	@FindBy(xpath = "//*[@id=\"country\"]")
 	private WebElement country;
 	
 	@FindBy(xpath = "//*[@id=\"customfield1\"]")

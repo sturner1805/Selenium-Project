@@ -26,7 +26,7 @@ public class ShoppingTest {
 	
 	@Before
 	public void beforeClass(){
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Desktop\\Selenium-Project\\SeleniumJars\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sam\\Desktop\\SeleniumProject\\SeleniumTests\\SeleniumJars\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("http://phptravels.com/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -46,7 +46,7 @@ public class ShoppingTest {
 		assertEquals(productsPageTitle, "PHPTRAVELS | Order");
 		assertNotNull(products.getMercuryOrder());
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("scroll(0, 550);");
+		jse.executeScript("scroll(0, 1000);");
 		waitUntilElementPresent("/html/body/section[2]/div/div[2]/div[1]/div/div/div[2]/div[3]/form/button" , 15);
 		products.clickOrderNow();
 		
@@ -61,25 +61,7 @@ public class ShoppingTest {
 		waitUntilElementPresent("//*[@id=\"order-boxes\"]/div[2]/div[2]/form/button" , 15);
 		cart.clickCheckout();
 		
-		form = new RegistrationPage(driver);
-		String regTitle = form.getTitle();
-		assertEquals(regTitle, "Shopping Cart - PHPTRAVELS");
-		form.enterDetails("Sam", form.getFirstName());
-		form.enterDetails("Turner", form.getLastName());
-		form.enterDetails("QA", form.getCompName());
-		form.enterDetails("sam1@email.com", form.getEmail());
-		form.enterDetails("12345678912", form.getPhone());
-		form.enterDetails("1 Road", form.getAddress1());
-		form.enterDetails("Village", form.getAddress2());
-		form.enterDetails("City", form.getCity());
-		form.enterDetails("County", form.getState());
-		form.enterDetails("ab12 3cd", form.getPostcode());
-		form.getCountry().findElement(By.cssSelector("option[value=\"GB\"]")).click();
-		form.getHowFound().findElement(By.cssSelector("option[value=\"Friend\"]")).click();
-		form.enterDetails("12121212121", form.getMobile());
-		form.enterDetails("123abd<>?ABC", form.getPassword());
-		form.enterDetails("123abd<>?ABC", form.getConfirmPassword());
-		form.getPaymentMethod().click();
+		
 	}
 	
 	@After
