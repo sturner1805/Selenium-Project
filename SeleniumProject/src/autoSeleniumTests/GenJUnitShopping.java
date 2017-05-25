@@ -1,4 +1,4 @@
-package seleniumTests;
+package autoSeleniumTests;
 
 import static org.junit.Assert.fail;
 
@@ -31,29 +31,31 @@ public class GenJUnitShopping {
 	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Desktop\\Selenium\\Selenium\\chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "http://phptravels.com/";
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
   public void testGenJUnitShopping() throws Exception {
     driver.get(baseUrl + "/demo/");
-    driver.findElement(By.linkText("Order")).click();
+    driver.findElement(By.xpath("//*[@id=\"main-menu\"]/ul/li[1]/span")).click();
 //    driver.findElement(By.xpath("(//a[contains(text(),'Integrations')])[3]")).click();
 //    driver.findElement(By.xpath("//div[2]/div/div/div[2]/div[3]/form/button")).click();
-    
-     driver.findElement(By.xpath("//button[@type='submit']")).click();
+    waitUntilElementPresent("/html/body/section[2]/div/div[2]/div[2]/div/div/div[2]/div[3]/form/button", 10);
+    driver.findElement(By.xpath("/html/body/section[2]/div/div[2]/div[2]/div/div/div[2]/div[3]/form/button")).click();
     
 //    String formWindow = driver.getWindowHandle();
 //    driver.switchTo().window(formWindow);
 //    driver.switchTo().defaultContent();
 //    Actions action = new Actions (driver);
-    driver.switchTo().frame(0);
-    driver.switchTo().defaultContent();
-    driver.switchTo().frame(1);
-    waitUntilElementPresent("inputFirstName", 5);
-    driver.findElement(By.id("inputFirstName")).click(); 
-    driver.findElement(By.id("inputFirstName")).clear();
-    driver.findElement(By.id("inputFirstName")).sendKeys("Sam");
+    //driver.switchTo().frame(0);
+    //driver.switchTo().defaultContent();
+   // driver.switchTo().frame(1);
+//    
+   // driver.findElement(By.id("firstname")).click(); 
+//     driver.getWindowHandle();
+     
+    driver.findElement(By.id("firstname")).clear();
+    driver.findElement(By.id("firstname")).sendKeys("Sam");
     driver.findElement(By.id("inputLastName")).clear();
     driver.findElement(By.id("inputLastName")).sendKeys("Smith");
     driver.findElement(By.id("inputCompanyName")).clear();
@@ -138,6 +140,6 @@ public class GenJUnitShopping {
   
   private void waitUntilElementPresent(String e, int timeout){
 	  WebDriverWait wait = new WebDriverWait(driver, timeout);
-	  wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(e)));
+	  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(e)));
   }
 }

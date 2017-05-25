@@ -1,4 +1,4 @@
-package seleniumTests;
+package autoSeleniumTests;
 
 import static org.junit.Assert.fail;
 
