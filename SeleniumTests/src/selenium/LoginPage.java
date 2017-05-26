@@ -18,9 +18,23 @@ public class LoginPage {
 	@FindBy(xpath = "//*[@id=\"Secondary_Navbar-Account-Register\"]/a")
 	private WebElement regBtn;
 	
+	@FindBy(xpath = "//*[@id=\"inputEmail\"]")
+	private WebElement email;
+	
+	@FindBy(xpath = "//*[@id=\"inputPassword\"]")
+	private WebElement password;
+	
+	@FindBy(xpath ="//*[@id=\"login\"]")
+	private WebElement submitBtn;
+	
 	public LoginPage(WebDriver driver){
 		LoginPage.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+	
+	public void enterDetails(String x , WebElement e){
+		e.clear();
+		e.sendKeys(x);
 	}
 	
 	public void clickAccountBtn(){
@@ -33,6 +47,10 @@ public class LoginPage {
 	
 	public void clickRegBtn(){
 		regBtn.click();
+	}
+	
+	public void clickSubmit(){
+		submitBtn.click();
 	}
 	
 	public String getTitle(){
@@ -49,6 +67,18 @@ public class LoginPage {
 	
 	public WebElement getRegBtn(){
 		return regBtn;
+	}
+	
+	public WebElement getEmail(){
+		return email;
+	}
+	
+	public WebElement getPassword(){
+		return password;
+	}
+	
+	public WebElement getSubmit(){
+		return submitBtn;
 	}
 
 }

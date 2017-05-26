@@ -5,13 +5,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,8 +25,10 @@ public class ShoppingTest {
 	
 	@Before
 	public void beforeClass(){
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sam\\Desktop\\SeleniumProject\\SeleniumTests\\SeleniumJars\\chromedriver.exe");
-		driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Desktop\\SeleniumProject\\SeleniumTests\\SeleniumJars\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--start-maximized");
+		driver = new ChromeDriver( options );
 		driver.get("http://phptravels.com/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
@@ -58,9 +59,13 @@ public class ShoppingTest {
 		String shoppingCartTitle = cart.getTitle();
 		assertEquals(shoppingCartTitle, "Shopping Cart - PHPTRAVELS");
 		assertNotNull(cart.getCheckout());
-		waitUntilElementPresent("//*[@id=\"order-boxes\"]/div[2]/div[2]/form/button" , 15);
 		cart.clickCheckout();
-		
+		driver.findElement(By.xpath("//*[@id=\"signupContainer\"]/div[1]/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"inputLoginEmail\"]")).clear();
+		driver.findElement(By.xpath("//*[@id=\"inputLoginEmail\"]")).sendKeys("sam1@email.com");
+		driver.findElement(By.xpath("//*[@id=\"inputLoginPassword\"]")).clear();
+		driver.findElement(By.xpath("//*[@id=\"inputLoginPassword\"]")).sendKeys("123abd<>?ABC");
+		driver.findElement(By.xpath("//*[@id=\"btnCompleteOrder\"]")).click(); // claiming incorrect username/password.	
 		
 	}
 	
@@ -70,8 +75,8 @@ public class ShoppingTest {
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
 			fail(verificationErrorString);
-    }
-  }
+		}
+	}
 	
 	private void waitUntilElementPresent(String e, int timeout){
 		  WebDriverWait wait = new WebDriverWait(driver, timeout);

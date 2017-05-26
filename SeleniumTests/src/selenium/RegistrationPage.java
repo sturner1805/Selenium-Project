@@ -1,6 +1,5 @@
 package selenium;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -57,6 +56,15 @@ public class RegistrationPage {
 	
 	@FindBy(xpath = "//*[@id=\"order-boxes\"]/form/div[4]/label[3]/input")
 	private WebElement paymentMethod;
+	
+	@FindBy(xpath = "//*[@id=\"inputCaptchaImage\"]")
+	private WebElement security;
+	
+	@FindBy(xpath = "//*[@id=\"main-body\"]/div[1]/div[3]/form/p/input")
+	private WebElement register;
+	
+	@FindBy(xpath = "//*[@id=\"main-body\"]/div[1]/div[3]/div")
+	private WebElement warning;
 
 	public RegistrationPage(WebDriver driver){
 		RegistrationPage.driver = driver;
@@ -70,6 +78,10 @@ public class RegistrationPage {
 	
 	public String getTitle(){
 		return driver.getTitle();
+	}
+	
+	public void clickRegister(){
+		register.click();
 	}
 
 	public WebElement getFirstName() {
@@ -134,5 +146,17 @@ public class RegistrationPage {
 	
 	public WebElement getPaymentMethod(){
 		return paymentMethod;
+	}
+	
+	public WebElement getSecurity(){
+		return security;
+	}
+	
+	public WebElement getRegister(){
+		return register;
+	}
+	
+	public WebElement getWarning(){
+		return warning;
 	}
 }

@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,11 +21,14 @@ public class RegistrationTest {
 	private static LoginPage login;
 	private StringBuffer verificationErrors = new StringBuffer();
 	private static RegistrationPage form;
+//	private static RegistrationPage reg;
 
 	@Before
 	public void beforeClass(){
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sam\\Desktop\\SeleniumProject\\SeleniumTests\\SeleniumJars\\chromedriver.exe");
-		driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Desktop\\SeleniumProject\\SeleniumTests\\SeleniumJars\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--start-maximized");
+		driver = new ChromeDriver( options );
 		driver.get("http://phptravels.com/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
@@ -37,20 +41,19 @@ public class RegistrationTest {
 		assertNotNull(home.getPadlock());
 		home.clickPadlock();
 		
-		for (String winHandle : driver.getWindowHandles()) { 
-	        driver.switchTo().window(winHandle);        
-	    }
 		login = new LoginPage(driver);
 		String LoginPageTitle = login.getTitle();
 		assertEquals(LoginPageTitle, "Client Area - PHPTRAVELS");
+		
 		assertNotNull(login.getAccountBtn());
 		login.clickAccountBtn();
 		assertNotNull(login.getRegBtn());
 		login.clickRegBtn();
-		
+		waitUntilElementPresent("//*[@id=\"Secondary_Navbar-Account\"]/a", 10);
 		form = new RegistrationPage(driver);
 		String regTitle = form.getTitle();
 		assertEquals(regTitle, "Register - PHPTRAVELS");
+		
 		form.enterDetails("Sam", form.getFirstName());
 		form.enterDetails("Turner", form.getLastName());
 		form.enterDetails("QA", form.getCompName());
@@ -66,6 +69,11 @@ public class RegistrationTest {
 		form.enterDetails("12121212121", form.getMobile());
 		form.enterDetails("123abd<>?ABC", form.getPassword());
 		form.enterDetails("123abd<>?ABC", form.getConfirmPassword());
+		form.clickRegister();
+		
+		assertNotNull(form.getWarning()); 	// Webpage updated during test development to include recapture security measure. 
+											// Unable to register new user automatically.
+											// Attempting to include a method to check manually inputed text. See waitFor5Char() below.
 	}
 	
 	@After
@@ -74,12 +82,20 @@ public class RegistrationTest {
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
 			fail(verificationErrorString);
-    }
-  }
+		}
+	}
 	
 	private void waitUntilElementPresent(String e, int timeout){
 		  WebDriverWait wait = new WebDriverWait(driver, timeout);
 		  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(e)));
 	}
+	
+//	private void waitFor5Char(String e, int timeout){
+//		  WebDriverWait wait = new WebDriverWait(driver, timeout);
+//		  WebElement x = driver.findElement(By.xpath(e));
+//		  System.out.println(reg.getSecurity().getText());
+//		  char[] five = login
+//		  wait.until(ExpectedConditions.textMatches(By.xpath(e), "12345"));
+//	}
 
 }

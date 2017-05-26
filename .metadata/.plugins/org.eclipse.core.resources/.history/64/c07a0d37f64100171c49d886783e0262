@@ -1,0 +1,74 @@
+package selenium;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class LoginLogoutTest {
+	
+	private static WebDriver driver;
+	private static HomePage home;
+	private static LoginPage login;
+	private static AccountPage account;
+	private StringBuffer verificationErrors = new StringBuffer();
+
+	
+	@Before
+	public void beforeClass(){
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Desktop\\SeleniumProject\\SeleniumTests\\SeleniumJars\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--start-maximized");
+		driver = new ChromeDriver( options );
+		driver.get("http://phptravels.com/");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	}
+	
+	@Test
+	public void loginOutTest(){
+		home = new HomePage(driver);
+		String homePageTitle = home.getTitle();
+		assertEquals(homePageTitle, "PHPTRAVELS | PHP Hotels Script tours vacations and cars booking online application");
+		assertNotNull(home.getPadlock());
+		home.clickPadlock();
+		
+		login = new LoginPage(driver);
+		String LoginPageTitle = login.getTitle();
+		assertEquals(LoginPageTitle, "Client Area - PHPTRAVELS");
+		
+		login.enterDetails("sam1@email.com", login.getEmail());
+		login.enterDetails("123abd<>?ABC", login.getPassword());
+		assertNotNull(login.getSubmit());
+		login.clickSubmit();
+		
+		account = new AccountPage (driver);
+		String AccountPageTitle = account.getTitle(); 
+		assertEquals(AccountPageTitle, "Client Area - PHPTRAVELS");
+		assertEquals(account.getHeader().getText(), "Welcome Back, Sam");
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+		driver.quit();
+		String verificationErrorString = verificationErrors.toString();
+		if (!"".equals(verificationErrorString)) {
+			fail(verificationErrorString);
+		}
+	}
+	
+	private void waitUntilElementPresent(String e, int timeout){
+		  WebDriverWait wait = new WebDriverWait(driver, timeout);
+		  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(e)));
+	}
+}
