@@ -43,5 +43,46 @@
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/jar_files/mongodb-driver-3.0.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/jar_files/mongodb-driver-core-3.0.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/jar_files/sqlite-jdbc-3.8.11.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/cglib-nodep-3.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/client-combined-3.0.1-nodeps.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/commons-io-2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/cssparser-0.9.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/guava-19.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/hamcrest-library-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/htmlunit-2.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/htmlunit-core-js-2.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/httpmime-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/javax.servlet-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/jetty-io-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/jetty-util-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/jna-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/jna-platform-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/neko-htmlunit-2.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/netty-3.5.7.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/phantomjsdriver-1.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/sac-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/serializer-2.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/websocket-api-9.2.15.v20160210.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/websocket-client-9.2.15.v20160210.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/websocket-common-9.2.15.v20160210.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/xalan-2.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/xercesImpl-2.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/SeleniumJars/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/ExtentJars/bson-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/ExtentJars/extentreports-2.41.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/ExtentJars/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/ExtentJars/jsoup-1.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/ExtentJars/mongodb-driver-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/ExtentJars/mongodb-driver-core-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/SeleniumProject/ExtentJars/sqlite-jdbc-3.8.11.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
